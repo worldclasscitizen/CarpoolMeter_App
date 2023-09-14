@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="244dp"
         android:text="5555"
-        android:textColor="#FFC107"
+        android:textColor="@color/white"
         android:textSize="80sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.74"
@@ -50,4 +50,20 @@
         app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/running_horse" />
+
+    <TextView
+        android:id="@+id/tv_meterGauge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginEnd="14dp"
+        android:text="2000"
+        android:textColor="#FFC107"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_meterFee"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42000002" />
 </androidx.constraintlayout.widget.ConstraintLayout>

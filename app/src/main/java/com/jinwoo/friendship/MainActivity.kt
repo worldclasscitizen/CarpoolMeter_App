@@ -141,7 +141,7 @@ class MainActivity : AppCompatActivity() {
         mLastLocation = location
         tv_latitude.text = "위도 : " + mLastLocation.latitude // 갱신 된 위도
         tv_longitude.text = "경도 : " + mLastLocation.longitude // 갱신 된 경도
-        tv_speed.text = "속도 : " + mLastLocation.speed // 갱신 된 경도
+        tv_speed.text = "속도 : " + mLastLocation.speed.toInt() // 갱신 된 속도
     }
 
     // 위치 권한이 있는지 확인하는 메서드

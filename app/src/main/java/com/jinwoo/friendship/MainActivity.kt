@@ -94,7 +94,6 @@ class MainActivity : AppCompatActivity() {
         btn_oilGo.setOnClickListener {
             if (checkPermissionForLocation(this)) {
                 startLocationUpdates()
-
             }
         }
 

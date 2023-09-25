@@ -20,8 +20,8 @@ import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.location.*
 import android.Manifest
+import android.annotation.SuppressLint
 
 
 class MainActivity : AppCompatActivity() {
@@ -105,6 +105,13 @@ class MainActivity : AppCompatActivity() {
             .load(R.drawable.running_horse).override(500,300)
             .skipMemoryCache(true)
             .into(iv_oilRunningHorse)
+
+        mLocationRequest =  LocationRequest.create().apply {
+            interval = 1000 // 업데이트 간격 단위(밀리초)
+            fastestInterval = 1000 // 가장 빠른 업데이트 간격 단위(밀리초)
+            priority = LocationRequest.PRIORITY_HIGH_ACCURACY // 정확성
+            maxWaitTime= 1000 // 위치 갱신 요청 최대 대기 시간 (밀리초)
+        }
     }
 
     private fun startLocationUpdates() {
@@ -135,7 +142,6 @@ class MainActivity : AppCompatActivity() {
         tv_latitude.text = "위도 : " + mLastLocation.latitude // 갱신 된 위도
         tv_longitude.text = "경도 : " + mLastLocation.longitude // 갱신 된 경도
         tv_speed.text = "속도 : " + mLastLocation.speed // 갱신 된 경도
-
     }
 
     // 위치 권한이 있는지 확인하는 메서드
@@ -144,6 +150,7 @@ class MainActivity : AppCompatActivity() {
             if (context.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 true
             } else {
+                // 권한이 없으므로 권한 요청 알림 보내기
                 ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_PERMISSION_LOCATION)
                 false
             }
@@ -165,6 +172,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
 
 
 
